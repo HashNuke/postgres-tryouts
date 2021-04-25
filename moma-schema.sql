@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS artist_contributions(
   artwork_id INTEGER
 );
 
+CREATE INDEX IF NOT EXISTS artwork_contrib_idx ON artist_contributions(artwork_id);
+
 CREATE TABLE IF NOT EXISTS artists(
   id SERIAL PRIMARY KEY,
   name TEXT,
