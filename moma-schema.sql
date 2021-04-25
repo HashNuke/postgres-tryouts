@@ -1,4 +1,4 @@
-CREATE TABLE artworks(
+CREATE TABLE IF NOT EXISTS artworks(
   id SERIAL PRIMARY KEY,
   title TEXT,
   artist_id INTEGER,
@@ -12,11 +12,11 @@ CREATE TABLE artworks(
   thumbnail_url TEXT
 );
 
-CREATE TABLE artists(
+CREATE TABLE IF NOT EXISTS artists(
   id SERIAL PRIMARY KEY,
   name TEXT,
   bio TEXT,
   nationality TEXT,
   gender TEXT,
-  ulan TEXT,
+  ulan TEXT
 );
