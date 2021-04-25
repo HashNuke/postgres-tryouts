@@ -1,15 +1,13 @@
 # postgres-tryouts
 
-
-
-
+Create the database for the rest of the experiments.
 
 ```
 # Create the database for the rest of the adventure
 psql -c 'create database tryouts'
 ```
 
-### To prepare the Product Hunt dataset
+## To prepare the Product Hunt dataset
 
 * The Product Hunt dataset can be downloaded [here](https://data.world/producthunt/product-hunt-research).
 * Look for the `PostsForExploration.csv` file to download.
@@ -21,7 +19,7 @@ psql -D tryouts producthunt-schema.sql
 psql -D tryouts producthunt.sql
 ```
 
-### To prepare the MoMA dataset
+## To prepare the MoMA dataset
 
 This is the data set of Artists and Artworks by Museum of Modern Art available on GitHub.
 
