@@ -39,9 +39,7 @@ git clone git@github.com:MuseumofModernArt/collection.git
 mv collection moma-collection
 
 # Load the schema for the dataset into the database
-psql -D tryouts moma-schema.sql
-python moma-artists.py > moma-artists.sql
-python moma-artworks.py > moma-artworks.sql
-psql -D tryouts moma-artists.sql
-psql -D tryouts moma-artworks.sql
+psql -d tryouts < moma-schema.sql
+python3 moma-artists.py ../moma-collection/Artists.json
+python3 moma-artworks.py ../moma-collection/Artworks.json
 ```
