@@ -35,11 +35,11 @@ After Git LFS is installed, ensure to run `git lfs install` command to install G
 git lfs install
 
 # Download the MoMA dataset
-git clone git@github.com:MuseumofModernArt/collection.git
-mv collection moma-collection
+git clone git@github.com:MuseumofModernArt/collection.git moma-collection
 
 # Load the schema for the dataset into the database
 psql -d tryouts < moma-schema.sql
-python3 moma-artists.py ../moma-collection/Artists.json
-python3 moma-artworks.py ../moma-collection/Artworks.json
+python3 moma-artists.py moma-collection/Artists.json
+python3 moma-artworks.py moma-collection/Artworks.json
+psql -d tryouts < moma-artist-contributions.sql
 ```

@@ -1,8 +1,9 @@
-import json
-import sys
-import os
+import json, sys, os
 import pandas as pd
 from sqlalchemy import create_engine
+
+db_url = 'postgresql://localhost/tryouts'
+table = 'artists'
 
 if len(sys.argv) < 2:
   print("Pass the path to the input file as an argument.")
@@ -26,19 +27,10 @@ df = df.rename(columns={
 })
 df = df.drop(columns=['BeginDate', 'EndDate', 'Wiki QID'])
 
-
-engine = create_engine('postgresql://localhost/tryouts', echo=False)
-df.to_sql(name='artists', con=engine, if_exists='append',index=False)
-
-# for row in data:
-#   insert_stmt = """INSERT INTO artists (id, name, bio, nationality, gender, ulan)
-#   VALUES ({},'{}','{}','{}','{}','{}');
-#   """.format(
-#     int(row.get('ConstituentID')),
-#     json.dumps(row.get('DisplayName')),
-#     json.dumps(row.get('ArtistBio')),
-#     json.dumps(row.get('Nationality')),
-#     json.dumps(row.get('Gender')),
-#     json.dumps(row.get('ULAN'))
-#   )
-#   print(insert_stmt)
+engine = create_engine(db_url, echo=False)
+df.to_sql(
+  name=table,
+  con=engine,
+  if_exists='append',
+  index=False
+)

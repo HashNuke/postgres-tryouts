@@ -1,15 +1,19 @@
 CREATE TABLE IF NOT EXISTS artworks(
   id SERIAL PRIMARY KEY,
   title TEXT,
-  artist_id INTEGER,
-  painting_date DATE,
   classification TEXT,
   department TEXT,
-  date_acquired TEXT,
-  width NUMERIC(8,2),
-  height NUMERIC(8,2),
+  date_acquired DATE,
+  artwork_year TEXT,
   website_url TEXT,
-  thumbnail_url TEXT
+  thumbnail_url TEXT,
+  artist_ids INTEGER[]
+);
+
+CREATE TABLE IF NOT EXISTS artist_contributions(
+  id SERIAL PRIMARY KEY,
+  artist_id INTEGER,
+  artwork_id INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS artists(
