@@ -14,9 +14,8 @@ psql -c 'create database tryouts'
 * Run the script below to convert the CSV into insert statements
 
 ```
-python producthunt.py PostsForExploration.csv > producthunt.sql
-psql -D tryouts producthunt-schema.sql
-psql -D tryouts producthunt.sql
+psql -d tryouts producthunt-schema.sql
+python producthunt.py PostsForExploration.csv
 ```
 
 ## To prepare the MoMA dataset
